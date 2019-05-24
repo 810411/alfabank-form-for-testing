@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import axios from "axios";
 
 import Form from "arui-feather/form";
 import FormField from "arui-feather/form-field";
