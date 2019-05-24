@@ -84,10 +84,8 @@ const FormOne = ({setResult, setCurrentView}) => {
     });
     setFieldsErrors(newfieldsErrors);
     if (Object.values(newfieldsErrors).every(elem => !elem)) {
-      axios.post('http://localhost:8000/users', fields)
-        .then(setResult)
-        .catch(({response}) => setResult(response))
-        .then(() => setCurrentView('result'))
+      setResult(fields);
+      setCurrentView('result');
     }
   };
   return (

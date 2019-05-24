@@ -90,10 +90,8 @@ const FormTwo = ({setResult, setCurrentView}) => {
       const encoded = textEncoder.encode(fields.patronymic);
       const textDecoder = new TextDecoder('cp866');
       newFields.patronymic = textDecoder.decode(encoded);
-      axios.post('http://localhost:8000/users', newFields)
-        .then(setResult)
-        .catch(({response}) => setResult(response))
-        .then(() => setCurrentView('result'))
+      setResult(newFields);
+      setCurrentView('result');
     }
   };
   return (

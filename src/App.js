@@ -41,8 +41,7 @@ const App = () => {
               onClick={() => setCurrentView('formTwo')}
             /></p>
             <p><Link
-              url="http://localhost:8000/users"
-              target='_blank'
+              url="#"
               text='Просмотреть все записи из базы данных'
               size='l'
             /></p>
@@ -63,7 +62,7 @@ const App = () => {
             <p>{result.status}</p>
             <p>{result.statusText}</p>
             <pre style={{wordWrap: 'break-word', whiteSpace: 'pre-wrap'}}>
-              {JSON.stringify(result.data)}
+              {JSON.stringify(result)}
             </pre>
             {selectionLink}
           </Fragment>}
