@@ -29,14 +29,14 @@ const FormOne = ({setResult, setCurrentView}) => {
     const newFields = {...fields};
     const newFieldsErrors = {...fieldsErrors};
     const rule = field === 'patronymic' ? /^[а-яА-Я]+$/ : /^[а-яА-Я]+-?[а-яА-Я]+$/;
-    if (value.length && !rule.test(value)) {
-      if (value.length === 1) {
-        newFieldsErrors[field] = 'Значение поля должно содержать больше одной буквы'
-      } else if (value.substr(-1) === '-') {
+    if (value.length > 1 && !rule.test(value)) {
+      if (value.substr(-1) === '-') {
         newFieldsErrors[field] = 'Значение поля не может заканчиваться на дефис'
       } else {
         newFieldsErrors[field] = `Значение поля может содержать только русские буквы ${field !== 'patronymic' ? ' и дефис' : ''}`
       }
+    } else if (value.length === 1) {
+      newFieldsErrors[field] = 'Значение поля должно содержать больше одной буквы'
     } else if (value.length > 64 && field !== 'surname') {
       newFieldsErrors[field] = 'Значение поля не может быть длинее 64 символов'
     } else if (field === 'surname' && value.indexOf('-') > -1) {
